@@ -3,9 +3,16 @@ name = "foss4g-lt-001"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
-    { name = "Takahiro Miyoshi", email = "takahiro-miyoshi@sankichi.net" }
+    { name = "Takahiro Miyoshi", email = "takahiro-miyoshi@sankichi.net" },
 ]
-dependencies = []
+dependencies = [
+    "requests>=2.32.3",
+    "numpy>=2.0.1",
+    "sgp4>=2.23",
+    "pymap3d>=3.1.0",
+    "matplotlib>=3.9.0",
+    "cartopy>=0.23.0",
+]
 readme = "README.md"
 requires-python = ">= 3.12"
 classifiers = ["Private :: Do Not Upload"]
@@ -19,10 +26,14 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = ["ipykernel>=6.29.5"]
 
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/foss4g_lt_001"]
+
+[tool.ruff]
+line-length = 100
+extend-include = ["*.ipynb"]
